@@ -32,11 +32,11 @@
     return [self initWithDbName:nil mainDirectory:nil];
 }
 
-- (instancetype)initWithDbName:(NSString *)dbName {
+- (instancetype _Nonnull)initWithDbName:(NSString *_Nullable)dbName {
     return [self initWithDbName:dbName mainDirectory:nil];
 }
 
-- (instancetype)initWithDbName:(NSString *)dbName mainDirectory:(NSString *)mainDirectory {
+- (instancetype _Nonnull)initWithDbName:(NSString *_Nullable)dbName mainDirectory:(NSString * _Nullable)mainDirectory {
     self = [super init];
     if (self) {
         _appShortVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
@@ -46,7 +46,7 @@
 
         _dbName = dbName ? [dbName copy] : CJMDBDefaultName;
         
-        _mainDirectory = mainDirectory ? [mainDirectory copy] : [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/com.cjmdb.multisuer"];
+        _mainDirectory = mainDirectory ? [mainDirectory copy] : [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/com.cjm.db"];
         
         _dbPath = [_mainDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.sqlite", _dbName]];
         
@@ -59,7 +59,7 @@
 #pragma mark - Accessor
 
 - (void)setDbName:(NSString *)dbName {
-    if ([_dbName isEqualToString:dbName]) {
+    if (!dbName) {
         return;
     }
     
@@ -68,9 +68,10 @@
 }
 
 - (void)setMainDirectory:(NSString *)mainDirectory {
-    if ([_mainDirectory isEqualToString:_mainDirectory]) {
+    if (!mainDirectory) {
         return;
     }
+    
     _mainDirectory = [mainDirectory copy];
     _dbPath = [_mainDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.sqlite", _dbName]];
 }
@@ -156,7 +157,7 @@
  * @param tableFields 表的标签
  * @return YES：创建成功或者已经存在；NO：创建失败。
 */
-- (BOOL)createTableAndInsertRecordIfNotExists:(NSString *)tableName withTableFields:(NSDictionary *)tableFields {
+- (BOOL)createTableAndInsertRecordIfNotExists:(NSString *_Nonnull)tableName withTableFields:(NSDictionary *_Nonnull)tableFields {
     NSParameterAssert(tableName);
     NSParameterAssert(tableFields);
     
@@ -201,7 +202,7 @@
  * @param tableName 表名
  * @return YES：删除表成功；NO：删除表失败。
  */
-- (BOOL)dropTableAndDeleteRecordIfExists:(NSString *)tableName {
+- (BOOL)dropTableAndDeleteRecordIfExists:(NSString *_Nonnull)tableName {
     NSParameterAssert(tableName);
     
     if ([tableName isEqualToString:CJMDBVersionTableName]) {
@@ -230,7 +231,7 @@
  * @param primaryKeys 复合主键
  * @return YES：创建成功或者已经存在；NO：创建失败。
  */
-- (BOOL)updateTable:(NSString *)tableName addPimaryKeys:(NSArray *)primaryKeys {
+- (BOOL)updateTable:(NSString *_Nonnull)tableName addPimaryKeys:(NSArray *_Nonnull)primaryKeys {
     NSParameterAssert(tableName);
     NSParameterAssert(primaryKeys);
 
@@ -253,7 +254,7 @@
  * @param condition 查询的条件 key=value AND key=value AND key<value AND key>value
  * @return YES：操作成功, NO：操作失败
  */
-- (BOOL)deleteFromTable:(NSString *)tableName withCondition:(NSString *)condition {
+- (BOOL)deleteFromTable:(NSString *_Nonnull)tableName withCondition:(NSString *_Nullable)condition {
     __block BOOL flag = NO;
     [self.queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
         @try {
@@ -277,7 +278,7 @@
  * @param tableName 表名
  * @return YES：存在；NO：不存在。
  */
-- (BOOL)isExistTable:(NSString *)tableName {
+- (BOOL)isExistTable:(NSString *_Nonnull)tableName {
     __block BOOL isExist = NO;
     [self.queue inDatabase:^(FMDatabase *db) {
         isExist = [CJMDBHelper isExistTable:tableName inDB:db];
@@ -292,7 +293,7 @@
  * @param condition 查询条件
  * @return 个数
  */
-- (NSInteger)selectCountFromTable:(NSString *)tableName withCondition:(NSString *)condition {
+- (NSInteger)selectCountFromTable:(NSString *_Nonnull)tableName withCondition:(NSString *_Nullable)condition {
     __block NSInteger count = 0;
     [self.queue inDatabase:^(FMDatabase *db) {
         count = [CJMDBHelper selectCountFromTable:tableName withCondition:condition inDB:db];
@@ -309,10 +310,10 @@
  * @param limit 限制，可用于分页查询，第n页：@"limit 5*(n-1), 5"
  * @return 返回查询的结果
  */
-- (NSArray *)selectAllFromTable:(NSString *)tableName
-                  withCondition:(NSString *)condition
-                          order:(NSString *)order
-                          limit:(NSString *)limit {
+- (NSArray *_Nonnull)selectAllFromTable:(NSString *_Nonnull)tableName
+                          withCondition:(NSString *_Nullable)condition
+                                  order:(NSString *_Nullable)order
+                                  limit:(NSString *_Nullable)limit {
     __block NSArray *array = nil;
     
     [self.queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
@@ -342,7 +343,7 @@
  * @param values 要插入的数据
  * @return YES：插入成功；NO：插入失败
  */
-- (BOOL)insertIntoTable:(NSString *)tableName withValues:(NSDictionary *)values {
+- (BOOL)insertIntoTable:(NSString *_Nonnull)tableName withValues:(NSDictionary *_Nonnull)values {
     return [self insertIntoTable:tableName withValues:values lastRowId:nil];
 }
 
@@ -353,9 +354,9 @@
  * @param lastRowId 返回插入的最新id
  * @return YES：插入成功；NO：插入失败
  */
-- (BOOL)insertIntoTable:(NSString *)tableName
-             withValues:(NSDictionary *)values
-              lastRowId:(NSInteger *)lastRowId {
+- (BOOL)insertIntoTable:(NSString *_Nonnull)tableName
+             withValues:(NSDictionary *_Nonnull)values
+              lastRowId:(NSInteger *_Nullable)lastRowId {
     __block BOOL result = NO;
     [self.queue inDatabase:^(FMDatabase *db) {
         @try {
@@ -382,7 +383,7 @@
  * @param values 要替换的数据
  * @return YES：替换成功；NO：替换失败
  */
-- (BOOL)replaceIntoTable:(NSString *)tableName withValues:(NSDictionary *)values {
+- (BOOL)replaceIntoTable:(NSString *_Nonnull)tableName withValues:(NSDictionary *_Nonnull)values {
     return [self replaceIntoTable:tableName withValues:values];
 }
 
@@ -393,7 +394,9 @@
  * @param lastRowId 返回替换后的最新id
  * @return YES:插入成功 NO:插入失败
  */
-- (BOOL)replaceIntoTable:(NSString *)tableName withValues:(NSDictionary *)values lastRowId:(NSInteger *)lastRowId {
+- (BOOL)replaceIntoTable:(NSString *_Nonnull)tableName
+              withValues:(NSDictionary *_Nonnull)values
+               lastRowId:(NSInteger *_Nullable)lastRowId {
     __block BOOL result = NO;    
     [self.queue inDatabase:^(FMDatabase *db) {
         @try {
@@ -419,9 +422,9 @@
  * @param condition 查询的条件 key=value AND key=value AND key<value AND key>value
  * @return YES：成功, NO：失败
  */
-- (BOOL)updateTable:(NSString *)tableName
-         withValues:(NSDictionary *)values
-          condition:(NSString *)condition {
+- (BOOL)updateTable:(NSString *_Nonnull)tableName
+         withValues:(NSDictionary *_Nonnull)values
+          condition:(NSString *_Nullable)condition {
     __block BOOL result = NO;
     [self.queue inDatabase:^(FMDatabase *db) {
         @try {
