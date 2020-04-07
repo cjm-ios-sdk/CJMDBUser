@@ -1,0 +1,25 @@
+PODS:
+  - CJMDBUser (0.1.0):
+    - FMDB
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+
+DEPENDENCIES:
+  - CJMDBUser (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - FMDB
+
+EXTERNAL SOURCES:
+  CJMDBUser:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CJMDBUser: b03a50a59b58de4410a8794f6c56b0942d8dc4d8
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+
+PODFILE CHECKSUM: 8dc20a8be662ecffc1e798c70107c4e77a6a2110
+
+COCOAPODS: 1.8.4

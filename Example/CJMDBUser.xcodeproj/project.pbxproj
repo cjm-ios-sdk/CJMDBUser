@@ -24,6 +24,7 @@
 		8485652877C552EE51B6FFCC /* Pods_CJMDBUser_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D498F17A3EF6F2E3598473 /* Pods_CJMDBUser_Tests.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		9C409AC8D74A0BF26C3832A4 /* Pods_CJMDBUser_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA21C3C930AC2F45293076BF /* Pods_CJMDBUser_Example.framework */; };
+		FC3ED4EB243C2A05001652DC /* CJMDBTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3ED4E9243C2A05001652DC /* CJMDBTestManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,7 @@
 
 /* Begin PBXFileReference section */
 		02D498F17A3EF6F2E3598473 /* Pods_CJMDBUser_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CJMDBUser_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2322D15BAEA183FA9ACA01B3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		2322D15BAEA183FA9ACA01B3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* CJMDBUser_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CJMDBUser_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -62,11 +63,13 @@
 		84B2B5C7A8423553F29C7A01 /* Pods-CJMDBUser_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJMDBUser_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CJMDBUser_Tests/Pods-CJMDBUser_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		988576AB0B3A75E172BAA1E9 /* Pods-CJMDBUser_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJMDBUser_Example.release.xcconfig"; path = "Target Support Files/Pods-CJMDBUser_Example/Pods-CJMDBUser_Example.release.xcconfig"; sourceTree = "<group>"; };
-		C5FC137D621C557867C09396 /* CJMDBUser.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = CJMDBUser.podspec; path = ../CJMDBUser.podspec; sourceTree = "<group>"; };
+		C5FC137D621C557867C09396 /* CJMDBUser.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CJMDBUser.podspec; path = ../CJMDBUser.podspec; sourceTree = "<group>"; };
 		D6533C207795555C915AC992 /* Pods-CJMDBUser_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJMDBUser_Tests.release.xcconfig"; path = "Target Support Files/Pods-CJMDBUser_Tests/Pods-CJMDBUser_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DA21C3C930AC2F45293076BF /* Pods_CJMDBUser_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CJMDBUser_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFFBAADA730250EB402E0B36 /* Pods-CJMDBUser_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJMDBUser_Example.debug.xcconfig"; path = "Target Support Files/Pods-CJMDBUser_Example/Pods-CJMDBUser_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		FFCCC981A78A3FFA47AC670E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		FC3ED4E9243C2A05001652DC /* CJMDBTestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJMDBTestManager.m; sourceTree = "<group>"; };
+		FC3ED4EA243C2A05001652DC /* CJMDBTestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJMDBTestManager.h; sourceTree = "<group>"; };
+		FFCCC981A78A3FFA47AC670E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* CJMViewController.h */,
 				6003F5A6195388D20070C39A /* CJMViewController.m */,
+				FC3ED4EA243C2A05001652DC /* CJMDBTestManager.h */,
+				FC3ED4E9243C2A05001652DC /* CJMDBTestManager.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -193,7 +198,6 @@
 				84B2B5C7A8423553F29C7A01 /* Pods-CJMDBUser_Tests.debug.xcconfig */,
 				D6533C207795555C915AC992 /* Pods-CJMDBUser_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +262,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -347,10 +352,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CJMDBUser_Example/Pods-CJMDBUser_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CJMDBUser/CJMDBUser.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CJMDBUser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -364,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3ED4EB243C2A05001652DC /* CJMDBTestManager.m in Sources */,
 				6003F59E195388D20070C39A /* CJMAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* CJMViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,

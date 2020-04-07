@@ -7,6 +7,7 @@
 //
 
 #import "CJMViewController.h"
+#import "CJMDBTestManager.h"
 
 @interface CJMViewController ()
 
@@ -18,6 +19,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    CJMDBTestManager *manager = [[CJMDBTestManager alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
