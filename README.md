@@ -96,7 +96,7 @@ NSArray *valuesArray = [_dbUser selectAllFromTable:SenderTableName
 ## 推送podspec
 
 ```shell
-pod repo push specs CJMDBUser.podspec --allow-warnings --sources=https://github.com/CocoaPods/Specs.git --use-libraries
+pod trunk push CJMDBUser.podspec --allow-warnings --sources=https://github.com/CocoaPods/Specs.git --use-libraries
 ```
 
 ## 使用安装
